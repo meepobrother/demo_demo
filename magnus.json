@@ -1,0 +1,10 @@
+{
+  "inputs": ["src/app/**/*.json"],
+  "output": "src/app/magnus",
+  "assets": "src/config",
+  "name": "demoAngular",
+  "type": "client",
+  "reciveName": ["basicApi", "addonBasic"],
+  "target": "angular",
+  "navigation": "src/app/navigation.json"
+}

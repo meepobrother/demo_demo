@@ -1,0 +1,882 @@
+query getWelcomeInfo{
+	getWelcomeInfo{
+		image
+		title
+		secondTitle
+		desc
+	}
+}
+
+query getWelcomeToDoItems{
+	getWelcomeToDoItems{
+		today {
+		title
+		events {
+		id
+		title
+		desc
+		count
+	}
+ 
+	}
+ 
+		yestoday {
+		title
+		events {
+		id
+		title
+		desc
+		count
+	}
+ 
+	}
+ 
+		thisweek {
+		title
+		events {
+		id
+		title
+		desc
+		count
+	}
+ 
+	}
+ 
+		lastweek {
+		title
+		events {
+		id
+		title
+		desc
+		count
+	}
+ 
+	}
+ 
+		within30Days {
+		title
+		events {
+		id
+		title
+		desc
+		count
+	}
+ 
+	}
+ 
+		thirtyDaysAgo {
+		title
+		events {
+		id
+		title
+		desc
+		count
+	}
+ 
+	}
+ 
+	}
+}
+
+query getWelcomeSystems{
+	getWelcomeSystems{
+		image
+		title
+		link
+	}
+}
+
+query createRandomCode{
+	createRandomCode}
+
+query checkUserState($username: String!){
+	checkUserState(username: $username){
+		code
+		message
+		data {
+		id
+		uid
+		randomCode
+	}
+ 
+	}
+
+}
+
+query login($username: String!,$password: String!){
+	login(username: $username,password: $password){
+		code
+		message
+		token
+	}
+
+}
+
+query findDomain($entity: FindDomainInput!){
+	findDomain(entity: $entity){
+		code
+		message
+		data {
+		count
+		list {
+		desc
+		id
+		title
+		code
+		status
+		createDate
+		createUserName
+		createUserId
+	}
+ 
+	}
+ 
+	}
+
+}
+
+query getDomain($id: Int!){
+	getDomain(id: $id){
+		code
+		message
+		data {
+		id
+		code
+		title
+		desc
+		createDate
+		createUserName
+		createUserId
+		status
+	}
+ 
+	}
+
+}
+
+query findAlarmPlan($entity: FindAlarmPlanInput!){
+	findAlarmPlan(entity: $entity){
+		code
+		message
+		data {
+		id
+		title
+		priority
+		desc
+		createDate
+		createUser
+	}
+ 
+	}
+
+}
+
+query getAlarmPlan{
+	getAlarmPlan{
+		code
+		message
+		data {
+		type
+		roleId
+		fromSystemId
+	}
+ 
+	}
+}
+
+query findmenu{
+	findmenu{
+		code
+		message
+		data
+	}
+}
+
+query findModule($entity: FindModuleInput!){
+	findModule(entity: $entity){
+		code
+		message
+		data {
+		id
+		name
+		link
+		status
+		dataProtocol
+	}
+ 
+	}
+
+}
+
+query getModule($id: Int!){
+	getModule(id: $id){
+		code
+		message
+		data {
+		id
+		name
+		link
+		status
+		dataProtocol
+	}
+ 
+	}
+
+}
+
+query findCapture($entity: FindCaptureInput!){
+	findCapture(entity: $entity){
+		code
+		message
+		data {
+		id
+		title
+		aisle
+		reason
+		remarks
+		createDate
+		createUserName
+	}
+ 
+	}
+
+}
+
+query findRoleRights{
+	findRoleRights{
+		code
+		message
+		data {
+		id
+		code
+		title
+		getRights {
+		id
+		type
+		title
+		code
+	}
+ 
+	}
+ 
+	}
+}
+
+query getPermission{
+	getPermission{
+		data {
+		id
+		title
+		children
+	}
+ 
+		code
+		message
+	}
+}
+
+query findRole($entity: FindRoleInput!){
+	findRole(entity: $entity){
+		code
+		message
+		data {
+		id
+		name
+		code
+		desc
+		dataRight
+		status
+		createUser
+		parentRole
+		createDate
+	}
+ 
+	}
+
+}
+
+query getRole($entity: GetRoleInput!){
+	getRole(entity: $entity){
+		code
+		message
+		data {
+		title
+		code
+		desc
+		mutualRoles {
+		id
+		title
+	}
+ 
+		BasicRoles {
+		id
+		title
+	}
+ 
+		status
+		createDate
+		createUserId
+		createUser
+	}
+ 
+	}
+
+}
+
+query deleteRoleGroupRole($entity: DeleteRoleGroupRoleInput!){
+	deleteRoleGroupRole(entity: $entity){
+		code
+		message
+	}
+
+}
+
+query findTheRoleGroup($entity: FindTheRoleGroupInput!){
+	findTheRoleGroup(entity: $entity){
+		code
+		message
+		data {
+		id
+		title
+		desc
+	}
+ 
+	}
+
+}
+
+query getRoleGroupRole($entity: GetRoleGroupRoleInput!){
+	getRoleGroupRole(entity: $entity){
+		code
+		message
+		data {
+		id
+	}
+ 
+	}
+
+}
+
+query findRoundPatrol($entity: FindRoundPatrolInput!){
+	findRoundPatrol(entity: $entity){
+		code
+		message
+		data {
+		id
+		title
+		windows
+		desc
+		createDate
+		createUserName
+	}
+ 
+	}
+
+}
+
+query getRoundPatrol($id: Int!){
+	getRoundPatrol(id: $id){
+		code
+		message
+		data {
+		id
+		title
+		screenStyle
+		desc
+		createUserName
+		createUserId
+		createDate
+		windowConfig {
+		id
+		organiztion
+		title
+		codeStream
+		duration
+	}
+ 
+	}
+ 
+	}
+
+}
+
+query findStation($entity: FindStationInput!){
+	findStation(entity: $entity){
+		code
+		message
+		data {
+		id
+		positionTitle
+		jobNumber
+		jobDescription
+		haveRole
+		createUserName
+		createDate
+	}
+ 
+	}
+
+}
+
+query getStation($id: Int!){
+	getStation(id: $id){
+		code
+		message
+		data {
+		department {
+		id
+		title
+	}
+ 
+		jobNumber
+		positionTitle
+		jobDescription
+		jobResponsibilities
+		jobRequirements
+		roleGroup {
+		id
+		title
+	}
+ 
+		status
+	}
+ 
+	}
+
+}
+
+query getAllDepartment($entity: GetAllDepartmentInput!){
+	getAllDepartment(entity: $entity){
+		code
+		message
+		data
+	}
+
+}
+
+query getAllStationByDepartment($entity: GetAllStationByDepartmentInput!){
+	getAllStationByDepartment(entity: $entity){
+		code
+		message
+		data {
+		id
+		title
+	}
+ 
+	}
+
+}
+
+query getAllUserByStation($entity: GetAllUserByStationInput!){
+	getAllUserByStation(entity: $entity){
+		code
+		message
+		data {
+		title
+		id
+	}
+ 
+	}
+
+}
+
+query findSummary($entity: FindSummaryInput!){
+	findSummary(entity: $entity){
+		code
+		message
+		data {
+		title
+		link
+		date
+	}
+ 
+	}
+
+}
+
+query findSystem($entity: FindSystemInput){
+	findSystem(entity: $entity){
+		id
+		title
+		link
+		rights {
+		id
+		title
+		type
+	}
+ 
+	}
+
+}
+
+query getSystem($id: Int!){
+	getSystem(id: $id){
+		code
+		message
+		data {
+		id
+		title
+		link
+		rights {
+		id
+		title
+	}
+ 
+	}
+ 
+	}
+
+}
+
+query confirmUserPassword($entity: ConfirmUserPasswordInput!){
+	confirmUserPassword(entity: $entity){
+		code
+		message
+	}
+
+}
+
+query findUser($entity: FindUserInput!){
+	findUser(entity: $entity){
+		code
+		message
+		data {
+		id
+		username
+		mobile
+		departmentTitle
+		roles
+		status
+		createDate
+		createUserName
+	}
+ 
+	}
+
+}
+
+query getUser($uid: Int!){
+	getUser(uid: $uid){
+		code
+		message
+		data {
+		id
+		username
+		mobile
+		email
+		stations {
+		id
+		title
+	}
+ 
+		bindingStaff {
+		id
+		title
+	}
+ 
+		status
+		createDate
+		createUserName
+	}
+ 
+	}
+
+}
+
+query findWallPlan($entity: FindWallPlanInput!){
+	findWallPlan(entity: $entity){
+		code
+		message
+		data {
+		title
+		desc
+		cearteUserName
+		cearteDate
+	}
+ 
+	}
+
+}
+
+mutation verifyUserToken($token: String!,$uid: Int!){
+	verifyUserToken(token: $token,uid: $uid)
+}
+
+mutation bindUserToken($entity: BindUserTokenInput!){
+	bindUserToken(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteDomain($id: Int!){
+	deleteDomain(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation forbidDomain($entity: ForbidDomainInput!){
+	forbidDomain(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveDomain($entity: SaveDomainInput!){
+	saveDomain(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation AddAlarmPlan($id: Int!){
+	AddAlarmPlan(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation deleteAlarmPlan($id: Int!){
+	deleteAlarmPlan(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation forbidAlarmPlan($entity: ForbidAlarmPlanInput!){
+	forbidAlarmPlan(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveAlarmPlan{
+	saveAlarmPlan{
+		code
+		message
+	}
+}
+
+mutation saveMenu($entity: SaveMenuInput!){
+	saveMenu(entity: $entity){
+		code
+		message
+		data {
+		menuId
+		status
+		icon
+		title
+	}
+ 
+	}
+
+}
+
+mutation deleteModule($id: Int!){
+	deleteModule(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation forbidModule($entity: ForbidModuleInput!){
+	forbidModule(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteCapture($id: Int!){
+	deleteCapture(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation saveCapture($entity: SaveCaptureInput!){
+	saveCapture(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation addOrRemoveSystemRight($entity: AddSystemRightInput!){
+	addOrRemoveSystemRight(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveRole($entity: SaveRoleInput!){
+	saveRole(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveTheRoleGroup($entity: SaveTheRoleGroupInput!){
+	saveTheRoleGroup(entity: $entity){
+		code
+		message
+		data {
+		id
+		title
+		desc
+	}
+ 
+	}
+
+}
+
+mutation deleteRoundPatrol($id: Int!){
+	deleteRoundPatrol(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation saveRoundPatrol($entity: SaveRoundPatrolInput!){
+	saveRoundPatrol(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteStation($id: Int!){
+	deleteStation(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation forbidStation($entity: ForbidStationInput!){
+	forbidStation(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveDepartment($entity: SaveDepartmentInput!){
+	saveDepartment(entity: $entity){
+		code
+		message
+		data
+	}
+
+}
+
+mutation saveStation($entity: SaveStationInput!){
+	saveStation(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteDepartment($entity: DeleteDepartmentInput!){
+	deleteDepartment(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteStationUser($entity: DeleteStationUserInput!){
+	deleteStationUser(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation addStationUser($entity: AddStationUserInput!){
+	addStationUser(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveSummary($entity: SaveSummaryInput!){
+	saveSummary(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteUser($uid: Int!){
+	deleteUser(uid: $uid){
+		code
+		message
+	}
+
+}
+
+mutation forbidUser($entity: ForbidUserInput!){
+	forbidUser(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation saveUser($entity: SaveUserInput!){
+	saveUser(entity: $entity){
+		code
+		message
+		data {
+		id
+		username
+		mobile
+		email
+		renGang
+		bindingStaff
+	}
+ 
+	}
+
+}
+
+mutation updateUserPassword($entity: UpdateUserPasswordInput!){
+	updateUserPassword(entity: $entity){
+		code
+		message
+	}
+
+}
+
+mutation deleteWallPlan($id: Int!){
+	deleteWallPlan(id: $id){
+		code
+		message
+	}
+
+}
+
+mutation saveWallPlan($entity: saveWallPlanInput!){
+	saveWallPlan(entity: $entity){
+		code
+		message
+	}
+
+}
+
